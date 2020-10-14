@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 import scipy
 from keras.datasets import mnist
 
@@ -14,3 +14,6 @@ x_test = x_test.reshape(x_test.shape[0], image_vector_size)
 x_train = x_train/255
 x_test = x_test/255
 
+hiddenLayers = np.zeros((2,16))
+
+weights = np.random((3,len(x_train),len(hiddenLayers[0])))

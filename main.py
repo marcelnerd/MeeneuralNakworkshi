@@ -22,7 +22,7 @@ hiddenLayers = np.zeros((2,num_n))
 #weights = np.random((3,len(x_train),len(hiddenLayers[0])))
 weights = []
 #print(weights)
-weights.append(np.random.randn(len(x_train), num_n))
+weights.append(np.random.randn(image_vector_size, num_n))
 weights.append(np.random.randn(num_n, num_n))
 weights.append(np.random.randn(num_n, num_out))
 weights = np.asarray(weights)

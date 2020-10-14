@@ -13,3 +13,4 @@ x_test = x_test.reshape(x_test.shape[0], image_vector_size)
 
 x_train = x_train/255
 x_test = x_test/255
+

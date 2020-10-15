@@ -1,7 +1,9 @@
 import numpy as np
 import scipy
 from keras.datasets import mnist
+from matplotlib import pyplot as plt
 import math
+from PIL import Image
 
 num_n = 16
 num_out = 10
@@ -33,14 +35,28 @@ weights = np.asarray(weights)
 # Function to multiply everything and determine node values
 def forward(image,weight):
     global hiddenLayers
+    global fig
 
-    hiddenLayers[0] = sigmoid(np.matmul(image,weight[0]))
-    hiddenLayers[1] = sigmoid(np.matmul(hiddenLayers[0],weight[1]))
-    output = sigmoid(np.matmul(hiddenLayers[1],weight[2]))
+    hiddenLayers[0] = sigmoid(np.matmul(image, weight[0]))
+    hiddenLayers[1] = sigmoid(np.matmul(hiddenLayers[0], weight[1]))
+    output = sigmoid(np.matmul(hiddenLayers[1], weight[2]))
+
+    im = image.reshape(28, 28)*255
+    plt.imshow(im, cmap='gray')
+
     return output
 
 # Function to keep node values between 0 and 1
 def sigmoid(vector):
     return 1/(1 + np.exp(-vector))
 
-print(forward(x_train[0],weights))
+############ Testing ###################
+axes=[]
+fig=plt.figure()
+
+for i in range(0, 5):
+    axes.append(fig.add_subplot(1, 5, i + 1))
+    print(forward(x_train[i], weights))
+
+fig.tight_layout()
+plt.show()

@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee58910b-110a-4737-9b8b-8100286a4043" name="Default Changelist" comment="Created forward function and sigmoid for it to call.">
+    <list default="true" id="ee58910b-110a-4737-9b8b-8100286a4043" name="Default Changelist" comment="Added image stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -124,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602724890148</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added image stuff">
+      <created>1602727649194</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602727649194</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,7 +151,8 @@
     <MESSAGE value="normalized pixel values" />
     <MESSAGE value="Defined hidden layers. Started on weights" />
     <MESSAGE value="Created forward function and sigmoid for it to call." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created forward function and sigmoid for it to call." />
+    <MESSAGE value="Added image stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added image stuff" />
   </component>
   <component name="WindowStateProjectService">
     <state x="192" y="63" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602696663528">
@@ -159,10 +167,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1602644957053" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602696650565">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603754734959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602696650565" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603754734959" />
     <state width="1515" height="261" key="GridCell.Tab.0.bottom" timestamp="1602726703433">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -199,10 +207,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602696521763" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1602724909318">
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1602727676678">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602724909318" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602727676678" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602210348958" />
   </component>
 </project>

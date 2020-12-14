@@ -3,7 +3,6 @@ import scipy
 from keras.datasets import mnist
 from matplotlib import pyplot as plt
 import math
-from PIL import Image
 
 num_n = 16
 num_out = 10
@@ -32,11 +31,11 @@ weights = np.asarray(weights)
 #print(weights.shape)
 #print(weights)
 
+
+gradients = np.zeros([len(output)].append(list(weight.shape)))
+
 # Function to multiply everything and determine node values
 def forward(image,weight):
-    global hiddenLayers
-    global fig
-
     hiddenLayers[0] = sigmoid(np.matmul(image, weight[0]))
     hiddenLayers[1] = sigmoid(np.matmul(hiddenLayers[0], weight[1]))
     output = sigmoid(np.matmul(hiddenLayers[1], weight[2]))
@@ -50,7 +49,49 @@ def forward(image,weight):
 def sigmoid(vector):
     return 1/(1 + np.exp(-vector))
 
-############ Testing ###################
+
+################### Maybe all of this is wrong #####################################
+
+
+def sig_derivative(vector):
+    return np.exp(-vector)/(1 + np.exp(-vector))**2
+
+def partial_derivative(weight_n,j,k,gradients,weight,image,node):
+    if weight_n == len(weight) - 1:
+        gradients[node][weight_n][j][k] = hiddenLayers[1][j] * \
+                                          sig_derivative(np.dot(hiddenLayers[1], weight[weight_n][j]))
+
+    else:
+        if weight_n > 0:
+            g = 0
+            for l in range(0, len(hiddenLayers[weight_n])):
+                g = g + hiddenLayers[weight_n][l] * \
+                    sig_derivative(np.dot(hiddenLayers[weight_n], weight[weight_n + 1][l])) * \
+                    partial_derivative(weight_n + 1, j,k,gradients,weight,image,node)
+            gradients[node][weight_n][j][k] = g
+
+        if weight_n == 0:
+            g = 0
+            for l in range(0, len(image[weight_n])):
+                g = g + image[weight_n - 1][l] * \
+                    sig_derivative(np.dot(image[l], weight[weight_n + 1][l])) * \
+                    partial_derivative(weight_n + 1, j, k, gradients, weight,image,node)
+            gradients[node][weight_n][j][k] = g
+    return gradients[node][weight_n][j][k]
+
+
+def back_propagate(image,weight,output):
+    #gradients = np.zeros((num_out,weight[0].shape[0] * weight[0].shape[1] + weight[1].shape[0] * weight[1].shape[1] +
+     #                    weight[2].shape[0] * weight[2].shape[1]))
+
+    for node in range(0,len(output)):
+        for weight_n in range(0,len(weight)):
+            for j in range(0,len(weight[weight_n])):
+                for k in range(0,len(weight[weight_n][j])):
+                    gradients[node][weight_n][j][k] = partial_derivative(weight_n, j, k, gradients, weight,image,node)
+
+
+                    ############ Testing ###################
 axes=[]
 fig=plt.figure()
 
